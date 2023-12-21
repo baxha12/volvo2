@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loading Page</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f8f8f8;
+        }
+
+        .loading-text {
+            font-size: 36px;
+            font-weight: bold;
+            text-transform: uppercase;
+            overflow: hidden;
+            font-size: 60px;
+        }
+
+        .letter {
+            display: inline-block;
+            opacity: 0;
+            transform: translateY(1em);
+            animation: showLetter 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards;
+        }
+
+        @keyframes showLetter {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="loading-text">
+        <span class="letter">V</span>
+        <span class="letter">o</span>
+        <span class="letter">l</span>
+        <span class="letter">v</span>
+        <span class="letter">o</span>
+
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const letters = document.querySelectorAll('.letter');
+            const animationDuration = 0.8; // seconds
+            const nextPageURL = 'page2.html'; // Replace with your actual next page URL
+
+            letters.forEach((letter, index) => {
+                setTimeout(() => {
+                    letter.style.animationDelay = `${index * 0.2}s`;
+                    letter.style.animationDuration = `${animationDuration}s`;
+                }, 0);
+            });
+
+            // Redirect to the next page after the animation completes
+            setTimeout(() => {
+                window.location.href = nextPageURL;
+            }, animationDuration * 1000 * letters.length);
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
